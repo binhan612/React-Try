@@ -4,6 +4,7 @@ import TodoForm from './components/TodoForm.js';
 import PostList from './components/PostList';
 import Pagination from './components/Pagination.js';
 import queryString from 'query-string';
+import PostFilterForm from './components/PostFilterForm.js';
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -65,11 +66,19 @@ function App() {
       _page: newPage
     });
   };
+  function handleSubmit(formValue) {
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: formValue.q,
+    });
+  }
   return (
     <>
       <h1>React Hooks</h1>
       {/* <TodoForm onSubmitForm={handleOnSubmit} />
       <TodoList todoList={todoList} onTodoClick={handleOnClick} /> */}
+      <PostFilterForm onSubmit={handleSubmit} />
       <PostList data={posts} />
       <Pagination
         pagination={pagination}
