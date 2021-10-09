@@ -1,0 +1,9 @@
+.hobby-list {
+    list-style: circle;
+}
+.hobby-list li {
+    cursor: pointer;
+}
+.hobby-list .active {
+    color: rgb(253, 8, 8);
+}
